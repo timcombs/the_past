@@ -1,0 +1,86 @@
+#pic__holder {
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 100;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pic__frame {
+  width: 108vh;
+  height: 85vh;
+  animation: grow-spin 25000ms infinite;
+  
+  overflow: hidden;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#pic {
+  /* width: 100vh;
+  height: 85vh; */
+
+  object-fit: fill;
+  height: 100%;
+}
+
+@keyframes grow-spin {
+  0% {
+    opacity: 0;
+
+    width: 3vh;
+    height: 3vh;
+    
+    transform: rotate(0deg);
+  }
+
+  30% {
+    /* width: 99vh;
+    height: 88vh; */
+    width: 108vh;
+    height: 85vh;
+
+    opacity: 1;
+
+    transform: rotate(720deg);
+  }
+
+  90% {
+    opacity: 1;
+    /* transform: rotate(720deg); */
+  }
+
+  100% {
+    opacity: 0;
+    transform: rotate(720deg);
+  }
+}
+
+#vid__frame {
+  display: none;
+}
+
+#vid-full {
+  height: 1vh;
+  width: 1vh;
+  border: 1px solid rgba(31, 73, 212, 0.4);
+  background-color: transparent;
+  padding: 0;
+
+  cursor:grab;
+  position: absolute;
+  top: 98vh;
+  left: 98vw;
+
+  z-index: 150;
+}
+
+/* *********************************************
+photos are 85 tall X 117 wide
+********************************************* */
