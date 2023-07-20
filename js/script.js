@@ -12,24 +12,24 @@ function goToFull(e) {
 }
 
 // *************************************************************
-//                    youtube full screen code
+//           youtube full screen code and timed stop code
 // *************************************************************
-const theFrame = document.getElementById('vid__frame');
-const fullVid = document.getElementById('vid-full');
+// const theFrame = document.getElementById('vid__frame');
+// const fullVid = document.getElementById('vid-full');
 
-fullVid.addEventListener('click', () => {
-  theFrame.style.display = 'block';
+// fullVid.addEventListener('click', () => {
+//   theFrame.style.display = 'block';
 
-  theFrame.requestFullscreen();
-  theFrame.setAttribute('src', 'https://www.youtube.com/embed/MQ8ZKw7YIfQ?start=2801&autoplay=1');
+//   theFrame.requestFullscreen();
+//   theFrame.setAttribute('src', 'https://www.youtube.com/embed/MQ8ZKw7YIfQ?start=2801&autoplay=1');
 
-  setTimeout(() => {
-    // document.exitFullscreen();
-    console.log('tried to stop');
-    theFrame.setAttribute('src', 'https://www.youtube.com/embed/MQ8ZKw7YIfQ');
-    theFrame.style.display = 'none';
-  }, 121000)
-});
+//   setTimeout(() => {
+//     // document.exitFullscreen();
+//     console.log('tried to stop');
+//     theFrame.setAttribute('src', 'https://www.youtube.com/embed/MQ8ZKw7YIfQ');
+//     theFrame.style.display = 'none';
+//   }, 121000)
+// });
 
 // *************************************************************
 //                    loading and spinning images
@@ -74,6 +74,7 @@ const picArray = [
 ]
 
 const pic = document.getElementById('pic');
+const picHolder = document.getElementById('pic__holder');
 let lnth = picArray.length;
 
 async function someProcedure (n) {
@@ -95,4 +96,21 @@ async function someProcedure (n) {
   // return 'done';
 }
 
-someProcedure(lnth);
+
+
+// *************************************************************
+//                    getting the audio to play
+//      NOTE: clicking image starts spinning pix as well
+//            clicking image makes it disappear
+// *************************************************************
+const boxHolder = document.getElementById('box-holder');
+const audio = new Audio('./poem-test.mp3');
+const playbox = document.getElementById('playbox');
+
+playbox.addEventListener("click", () => {
+  audio.play();
+  boxHolder.style.opacity = 0;
+  boxHolder.style.zIndex = -300;
+  picHolder.style.opacity = 1;
+  someProcedure(lnth);
+});

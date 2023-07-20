@@ -1,3 +1,16 @@
+#box-holder {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 200;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #pic__holder {
   width: 100vw;
   height: 100vh;
@@ -8,12 +21,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  opacity: 0; /* this will be modified using js! */
 }
 
 .pic__frame {
   width: 108vh;
   height: 85vh;
-  animation: grow-spin 25000ms infinite;
+  /* this is how long the pic will spin, originally 25 sec, now at 5 sec */
+  animation: grow-spin 5000ms infinite;
   
   overflow: hidden;
 
@@ -40,7 +56,7 @@
     transform: rotate(0deg);
   }
 
-  30% {
+  20% {
     /* width: 99vh;
     height: 88vh; */
     width: 108vh;
@@ -48,17 +64,21 @@
 
     opacity: 1;
 
-    transform: rotate(720deg);
+    transform: rotate(360deg);
   }
 
-  90% {
+  70% {
     opacity: 1;
     /* transform: rotate(720deg); */
   }
 
+  95% {
+    opacity: 0;
+    transform: rotate(360deg);
+  }
+
   100% {
     opacity: 0;
-    transform: rotate(720deg);
   }
 }
 
