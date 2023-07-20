@@ -80,10 +80,14 @@ async function someProcedure (n) {
   for (let i = 0; i < n; i++) {
     pic.src = picArray[i];
     
-    const x = await new Promise(r => setTimeout(r, 25000, i));
+    // spinning takes place in the CSS
+    // image shows for 5 seconds (was 25 seconds in an earlier version of this)
+    const x = await new Promise(r => setTimeout(r, 5000, i));
     console.log (i, x, pic.src);
   }
 
+  // this resets the slide show to the beginning once you hit the final pic
+  // note the recursion!
   if (i = n) {
     i = 0;
   }
