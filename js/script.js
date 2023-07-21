@@ -98,7 +98,7 @@ async function someProcedure (n) {
     // this code is for moving to the map animation
     picHolder.style.opacity = 0;
     mapHolder.style.opacity = 1;
-    map.src = 'map.gif';
+    map.src = 'map-stop.gif';
   }
   someProcedure(lnth);
   // return 'done';
