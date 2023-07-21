@@ -84,7 +84,7 @@ async function someProcedure (n) {
     
     // spinning takes place in the CSS
     // image shows for 5 seconds (was 25 seconds in an earlier version of this)
-    const x = await new Promise(r => setTimeout(r, 5000, i));
+    const x = await new Promise(r => setTimeout(r, 4000, i));
     console.log (i, x, pic.src);
   }
 
@@ -99,8 +99,10 @@ async function someProcedure (n) {
     picHolder.style.opacity = 0;
     mapHolder.style.opacity = 1;
     map.src = 'map-stop.gif';
+  } else {
+    someProcedure(lnth);
   }
-  someProcedure(lnth);
+  // someProcedure(lnth);
   // return 'done';
 }
 
@@ -112,7 +114,7 @@ async function someProcedure (n) {
 //            clicking image makes it disappear
 // *************************************************************
 const boxHolder = document.getElementById('box__holder');
-const audio = new Audio('./poem-test.mp3');
+const audio = new Audio('./poem.mp3');
 const playbox = document.getElementById('playbox');
 
 playbox.addEventListener("click", () => {

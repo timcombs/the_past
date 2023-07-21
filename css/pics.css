@@ -57,7 +57,7 @@
   width: 108vh;
   height: 85vh;
   /* this is how long the pic will spin, originally 25 sec, now at 5 sec */
-  animation: grow-spin 5000ms infinite;
+  animation: grow-spin 4000ms infinite;
   
   overflow: hidden;
 
