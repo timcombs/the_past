@@ -113,14 +113,44 @@ async function someProcedure (n) {
 //      NOTE: clicking image starts spinning pix as well
 //            clicking image makes it disappear
 // *************************************************************
+// to make sure that pix play smoothly, the time of function run needs to be
+// multiples of 5 seconds after page loads.
+const timeLoaded = Date.now();
+console.log(timeLoaded);
+
+// async/await delay utility function
+const delay = ms => new Promise(res => setTimeout(res, ms));
+
 const boxHolder = document.getElementById('box__holder');
 const audio = new Audio('./poem.mp3');
 const playbox = document.getElementById('playbox');
 
 playbox.addEventListener("click", () => {
+  clickAfterWaiting();
+});
+
+async function clickAfterWaiting() {
+  const timeClicked = Date.now();
+
+  const waitTime = 7500 - ((timeClicked - timeLoaded) % 5000);
+  console.log(timeClicked, timeLoaded, waitTime);
+
   audio.play();
   boxHolder.style.opacity = 0;
   boxHolder.style.zIndex = -300;
   picHolder.style.opacity = 1;
+
+  // waiting till a multiple of 5 sec
+  await delay(waitTime);
+  // then run listener function
   someProcedure(lnth);
-});
+}
+
+// // This example takes 2 seconds to run
+
+// setTimeout(() => {
+//   const millis = Date.now() - start;
+
+//   console.log(`seconds elapsed = ${Math.floor(millis / 1000)}`);
+//   // Expected output: "seconds elapsed = 2"
+// }, 2000);
