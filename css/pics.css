@@ -13,7 +13,9 @@
 }
 
 #playbox {
-  padding: 25px;;
+  padding: 25px;
+  object-fit: contain;
+  width: 50%;
 }
 
 #box__holder p, #box__holder h1 {
@@ -22,6 +24,7 @@
   font-weight: normal;
   font-size: 1.5rem;
   margin: 2px;
+  text-align: center;
 }
 
 #map__holder {
